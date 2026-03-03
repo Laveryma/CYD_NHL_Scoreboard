@@ -1,5 +1,12 @@
-![Splash Screen](<img src="assets/Screen_BootUp.jpeg" width="500">)
- CYD NHL Scoreboard
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Laveryma/CYD_NHL_Scoreboard/main/assets/Screen_BootUp.jpeg" width="180">
+  <img src="https://raw.githubusercontent.com/Laveryma/CYD_NHL_Scoreboard/main/assets/Screen_NextGame.jpeg" width="180">
+  <img src="https://raw.githubusercontent.com/Laveryma/CYD_NHL_Scoreboard/main/assets/Screen_GameDay.jpeg" width="180">
+  <img src="https://raw.githubusercontent.com/Laveryma/CYD_NHL_Scoreboard/main/assets/Screen_LastGame.jpeg" width="180">
+  <img src="https://raw.githubusercontent.com/Laveryma/CYD_NHL_Scoreboard/main/assets/Screen_Standings.jpeg" width="180">
+</p> 
+
+## CYD NHL Scoreboard
 
 NHL scoreboard firmware for the **ESP32-2432S028 CYD** (320x240 TFT).
 
@@ -11,8 +18,8 @@ The firmware pulls data from the public NHL web API (`api-web.nhle.com`) and dis
 
 Key capabilities:
 
-- Focus on a single NHL team (`FOCUS_TEAM_ABBR`)
-- Dual Wi-Fi support (primary + fallback SSID)
+- Focus on a single NHL team (`FOCUS_TEAM_ABBR`) <-- update to your favoutite team, default is `TOR`
+- Two Wi-Fi support (primary + fallback SSID) <-- support for on device wifi selection in next update
 - Local-time scheduling with DST-aware timezone support (`TZ_INFO`)
 - Countdown states: `NEXT GAME`, `GAME DAY`, `PRE-GAME`
 - Live game scoreboard + stats + strength state + penalty countdown
@@ -45,14 +52,6 @@ When a game reaches `FINAL`:
 3. BOOT short click shows `STANDINGS` for 16 seconds
 4. Then screen returns to countdown (`NO_GAME`)
 
-### Home / away layout
-
-Throughout game screens:
-
-- **Home team is shown on the left**
-- **Away team is shown on the right**
-- Score, SOG, Hits, and FO% follow the same left-home / right-away order
-
 ## Controls (BOOT button)
 
 - **Short click (normal):** enters/cycles manual screens
@@ -66,7 +65,7 @@ Throughout game screens:
 - Board: `esp32dev` (CYD ESP32-2432S028 wiring profile used in this project)
 - Display: TFT_eSPI with project-local setup in `include/User_Setup.h`
 - Resolution/orientation target: 320x240 landscape UI
-- Audio output: ESP32 DAC (`GPIO25` or `GPIO26`)
+- Audio output: ESP32 DAC (`GPIO25` or `GPIO26`) <-- tested using jst port
 - Touch hardware exists on CYD, but **touch is not used** in this firmware
 
 ## Project Layout
@@ -325,5 +324,6 @@ Before publishing:
 ## License / Attribution
 
 If you plan to publish publicly, add your preferred license file (for example `MIT`) and attribution notes for any third-party assets.
+
 
 

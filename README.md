@@ -1,4 +1,4 @@
-![Splash Screen](assets/Screen_BootUp.jpg)
+![Splash Screen](<img src="assets/Screen_BootUp.jpeg" width="500">)
  CYD NHL Scoreboard
 
 NHL scoreboard firmware for the **ESP32-2432S028 CYD** (320x240 TFT).
@@ -325,4 +325,5 @@ Before publishing:
 ## License / Attribution
 
 If you plan to publish publicly, add your preferred license file (for example `MIT`) and attribution notes for any third-party assets.
+
 

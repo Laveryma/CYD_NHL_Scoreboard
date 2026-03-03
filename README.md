@@ -30,66 +30,11 @@ Key capabilities:
 - Pre-game lineup ticker for the focus team
 - Optional anthem playback at puck drop transition (PRE -> LIVE)
 
-## Screen Behavior
-
-### Automatic mode
-
-Auto mode routes to these screens:
-
-- `NO_GAME` (countdown) when there is no active game or game is pre-start
-- `LIVE` when game is in progress
-- `INTERMISSION` during period breaks
-- `FINAL` when game is complete
-
-`LAST_GAME` and `STANDINGS` are available in manual screen cycling.
-
-### Final dismiss flow
-
-When a game reaches `FINAL`:
-
-1. Final screen stays on-screen (held)
-2. Bottom hint appears: `CLICK BOOT TO DISMISS`
-3. BOOT short click shows `STANDINGS` for 16 seconds
-4. Then screen returns to countdown (`NO_GAME`)
-
-## Controls (BOOT button)
-
-- **Short click (normal):** enters/cycles manual screens
-  - `LAST_GAME -> STANDINGS -> LIVE -> INTERMISSION -> FINAL -> GOAL -> NO_GAME -> auto`
-- **Short click on held FINAL:** dismiss flow (standings preview -> countdown)
-- **Long press (~1.4s):** anthem test playback
-- **During anthem playback:** short click reduces gain by 10%
-
-## Hardware / Target
-
-- Board: `esp32dev` (CYD ESP32-2432S028 wiring profile used in this project)
-- Display: TFT_eSPI with project-local setup in `include/User_Setup.h`
-- Resolution/orientation target: 320x240 landscape UI
-- Audio output: ESP32 DAC (`GPIO25` or `GPIO26`) <-- tested using jst port
-- Touch hardware exists on CYD, but **touch is not used** in this firmware
-
-## Project Layout
-
-- `src/main.cpp` - runtime loop, state logic, polling, BOOT handling
-- `src/ui.cpp` - all screen rendering and layout
-- `src/nhl_client.cpp` - NHL API fetch + parse
-- `src/assets.cpp` - PNG loading/decoding from SPIFFS/SD
-- `src/anthem.cpp` - WAV playback and puck-drop trigger
-- `include/config.h` - user configuration
-- `include/config.example.h` - config template for new users
-- `data/` - SPIFFS content (splash, logos, audio)
-
-## Data Source
-
-Primary live query path:
-
-- `https://api-web.nhle.com/v1/scoreboard/now`
-
-Additional endpoints are used for schedule, play-by-play, boxscore, recap, and standings.
-
-- No API key required
-
 ## Quick Start
+
+Note: Default splash.png is currently designed for Toronto Maple Leafs focus team.
+Use the blank ice surface image in `assets/blank_splash.png` to replace or customise the splash screen with your favourite team. 
+Any custom splash screen replacement image must be named `splash.png`
 
 ### 1) Prerequisites
 
@@ -176,6 +121,66 @@ If you choose unpinned builds, retest at minimum:
 - Display color order / rotation
 - SPIFFS mount + asset paths
 - Audio output quality/timing
+
+
+## Screen Behavior
+
+### Automatic mode
+
+Auto mode routes to these screens:
+
+- `NO_GAME` (countdown) when there is no active game or game is pre-start
+- `LIVE` when game is in progress
+- `INTERMISSION` during period breaks
+- `FINAL` when game is complete
+
+`LAST_GAME` and `STANDINGS` are available in manual screen cycling.
+
+### Final dismiss flow
+
+When a game reaches `FINAL`:
+
+1. Final screen stays on-screen (held)
+2. Bottom hint appears: `CLICK BOOT TO DISMISS`
+3. BOOT short click shows `STANDINGS` for 16 seconds
+4. Then screen returns to countdown (`NO_GAME`)
+
+## Controls (BOOT button)
+
+- **Short click (normal):** enters/cycles manual screens
+  - `LAST_GAME -> STANDINGS -> LIVE -> INTERMISSION -> FINAL -> GOAL -> NO_GAME -> auto`
+- **Short click on held FINAL:** dismiss flow (standings preview -> countdown)
+- **Long press (~1.4s):** anthem test playback
+- **During anthem playback:** short click reduces gain by 10%
+
+## Hardware / Target
+
+- Board: `esp32dev` (CYD ESP32-2432S028 wiring profile used in this project)
+- Display: TFT_eSPI with project-local setup in `include/User_Setup.h`
+- Resolution/orientation target: 320x240 landscape UI
+- Audio output: ESP32 DAC (`GPIO25` or `GPIO26`) <-- tested using jst port
+- Touch hardware exists on CYD, but **touch is not used** in this firmware
+
+## Project Layout
+
+- `src/main.cpp` - runtime loop, state logic, polling, BOOT handling
+- `src/ui.cpp` - all screen rendering and layout
+- `src/nhl_client.cpp` - NHL API fetch + parse
+- `src/assets.cpp` - PNG loading/decoding from SPIFFS/SD
+- `src/anthem.cpp` - WAV playback and puck-drop trigger
+- `include/config.h` - user configuration
+- `include/config.example.h` - config template for new users
+- `data/` - SPIFFS content (splash, logos, audio)
+
+## Data Source
+
+Primary live query path:
+
+- `https://api-web.nhle.com/v1/scoreboard/now`
+
+Additional endpoints are used for schedule, play-by-play, boxscore, recap, and standings.
+
+- No API key required
 
 ## Asset Paths
 
@@ -324,6 +329,7 @@ Before publishing:
 ## License / Attribution
 
 If you plan to publish publicly, add your preferred license file (for example `MIT`) and attribution notes for any third-party assets.
+
 
 
 

@@ -3,17 +3,11 @@
 // Wi-Fi (primary + fallback).
 // Device prefers WIFI_SSID_1 when it is visible, otherwise it will try WIFI_SSID_2.
 // Set WIFI_SSID_2 to "" to disable fallback.
-//#define WIFI_SSID_1       ""
-//#define WIFI_PASSWORD_1   ""
+#define WIFI_SSID_1       ""
+#define WIFI_PASSWORD_1   ""
 
-//#define WIFI_SSID_2       ""
-//#define WIFI_PASSWORD_2   ""
-
-#define WIFI_SSID_1       "SKYU4SPR-2.4GHz"
-#define WIFI_PASSWORD_1   "cee9j9u7mf4J"
-
-#define WIFI_SSID_2       "TALKTALK8FCFF7"
-#define WIFI_PASSWORD_2   "CYGQPHUJ"
+#define WIFI_SSID_2       ""
+#define WIFI_PASSWORD_2   ""
 
 // Connection behaviour
 #define WIFI_SCAN_BEFORE_CONNECT      1

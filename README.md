@@ -19,7 +19,7 @@ The firmware pulls data from the public NHL web API (`api-web.nhle.com`) and dis
 Key capabilities:
 
 - Focus on a single NHL team (`FOCUS_TEAM_ABBR`) <-- update to your favoutite team, default is `TOR`
-- Two Wi-Fi support (primary + fallback SSID) <-- support for on device wifi selection in next update
+- Two Wi-Fi support (primary + fallback SSID) <-- support for on-device wifi selection in next update
 - Local-time scheduling with DST-aware timezone support (`TZ_INFO`)
 - Countdown states: `NEXT GAME`, `GAME DAY`, `PRE-GAME`
 - Live game scoreboard + stats + strength state + penalty countdown
@@ -329,6 +329,7 @@ Before publishing:
 ## License / Attribution
 
 If you plan to publish publicly, add your preferred license file (for example `MIT`) and attribution notes for any third-party assets.
+
 
 
 

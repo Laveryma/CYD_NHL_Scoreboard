@@ -318,19 +318,8 @@ If `uploadfs` fails with `File system is full`:
 UI can show stale/offline labels when Wi-Fi or API fetches fail.
 Use serial logs to inspect HTTP status and Wi-Fi state.
 
-## Security / GitHub Hygiene
+## Support
 
-Before publishing:
+If you enjoy what I’m making and want to support more late-night builds, experiments, and random ideas turning into reality, it's genuinely appreciated.
 
-- Do **not** commit personal Wi-Fi credentials in `include/config.h`
-- Keep a sanitized `config.example.h` for public use
-- Keep `.pio/` build artifacts out of Git (already in `.gitignore`)
-
-## License / Attribution
-
-If you plan to publish publicly, add your preferred license file (for example `MIT`) and attribution notes for any third-party assets.
-
-
-
-
-
+- https://buymeacoffee.com/zerocypherxiii
